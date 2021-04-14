@@ -1,7 +1,10 @@
-<ul>
-  <li *ngFor="let books of books">
-    <a routerLink = "/books/{{book.id}}">
-      {{book.title}}
-    </a>
-  </li>
-</ul>
+<div class="list-group">
+  <a
+    *ngFor="let book of books"
+    routerLink="/books/{{ book.id }}"
+    class="d-flex justify-content-between list-group-item list-group-item-action list-group-item-info m-1 border-info border rounded"
+    >{{ book.title }}
+    <span *ngIf="book.isBorrowed" class="badge badge-danger badge-pill">Wypożyczona</span>
+    <span *ngIf="!book.isBorrowed" class="badge badge-success badge-pill">Dostępna</span>
+  </a>
+</div>

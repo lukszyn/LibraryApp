@@ -15,13 +15,7 @@ export class BooksListComponent implements OnInit {
   ngOnInit(): void {
 
     var book = new Book();
-    book.title = "Potop";
-    book.author = "Henryk Sienkiewicz";
-    book.publisher = "PWN";
-    book.publishYear = 2010;
-    book.pagesCount = 566
 
-    this.addBook(book);
     this.retrieveBooks();
   }
 
@@ -33,6 +27,13 @@ export class BooksListComponent implements OnInit {
   addBook(book: Book)
   {
     this.booksService.create(book)
+    .subscribe(response => {console.log(response); this.retrieveBooks()},
+    error => console.log(error));
+  }
+
+  deleteBook(id: number)
+  {
+    this.booksService.delete(id)
     .subscribe(response => {console.log(response); this.retrieveBooks()},
     error => console.log(error));
   }

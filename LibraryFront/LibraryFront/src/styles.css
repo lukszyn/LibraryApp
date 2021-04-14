@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Merriweather:wght@400;700&display=swap');
+
+body {
+  background-image: linear-gradient(to right top, #0016f8, #006eff, #0080d0, #008967, #068c06);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Lato', sans-serif;
+}

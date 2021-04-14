@@ -7,7 +7,6 @@ using System.Collections.Generic;
 namespace LibraryWebAPI.Controllers
 {
     [Route("api/books")]
-    [EnableCors("http://localhost:4200")]
     public class BooksController : ControllerBase
     {
         private readonly IBooksService _booksService;

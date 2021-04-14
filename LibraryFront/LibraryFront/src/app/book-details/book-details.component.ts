@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Book } from '../book';
+import { BooksService } from '../books.service';
 
 @Component({
   selector: 'app-book-details',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor() { }
+  book: Book;
+
+  constructor(private booksService: BooksService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.retrieveBook(this.route.snapshot.params.id);
+  }
+
+  retrieveBook(id: any) {
+    this.booksService.get(id)
+      .subscribe(data => { this.book = data; console.log(data) }, error => { console.log(error) });
   }
 
 }

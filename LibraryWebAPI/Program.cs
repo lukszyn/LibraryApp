@@ -29,21 +29,30 @@ namespace LibraryWebAPI
         private void Run(IUnityContainer container)
         {
             _dbService.EnsureDatabaseMigration();
+            string specs = "AllowCorsSpecification";
 
             WebHost
                 .CreateDefaultBuilder()
                 .UseUnityServiceProvider(container)
                 .ConfigureServices(services =>
                 {
+                    services.AddCors(options =>
+                    {
+                        options.AddDefaultPolicy(
+                            builder =>
+                            {
+                                builder.WithOrigins("http://localhost:4200")
+                                       .AllowAnyHeader()
+                                       .AllowAnyMethod(); ;
+                            });
+                    });
                     services.AddMvc();
                     services.AddSwaggerGen(SwaggerDocsConfig);
                 })
                 .Configure(app =>
                 {
                     app.UseRouting();
-                    app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
-                                .AllowAnyMethod()
-                                .AllowAnyHeader());
+                    app.UseCors();
                     app.UseEndpoints(endpoints =>
                     {
                         endpoints.MapControllers();
