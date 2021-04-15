@@ -1,0 +1,24 @@
+<div *ngIf="book" class="mb-2">
+  <div class="form-group">
+    <label for="title">Tytuł</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="this.book.title">
+  </div>
+  <div class="form-group">
+    <label for="author">Autor</label>
+    <input type="text" class="form-control" id="author" [(ngModel)]="this.book.author">
+  </div>
+  <div class="form-group">
+    <label for="publisher">Wydawnictwo</label>
+    <input type="text" class="form-control" id="publisher" [(ngModel)]="this.book.publisher">
+  </div>
+  <div class="form-group">
+    <label for="publishYear">Rok wydania</label>
+    <input type="number" class="form-control" id="publishYear" [(ngModel)]="this.book.publishYear">
+  </div>
+  <div class="form-group">
+    <label for="pagesCount">Liczba stron</label>
+    <input type="number" class="form-control" id="pagesCount" [(ngModel)]="this.book.pagesCount">
+  </div>
+  <button (click)="addBook()" class="btn btn-info">Dodaj</button>
+  <button routerLink="/books/" class="btn btn-outline-info ml-2">Powrót</button>
+</div>

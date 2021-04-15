@@ -1,3 +1,24 @@
-<div *ngIf = "book">
-  <p>{{book.title}}</p>
+<div *ngIf="book">
+  <div class="card-body">
+    <div class="d-inline-flex align-items-center mb-2">
+      <h4 class="card-title mt-1">{{ book.title }}</h4>
+      <span *ngIf="book.isBorrowed" class="badge badge-danger badge-pill ml-2"
+        >Wypożyczona</span
+      >
+      <span *ngIf="!book.isBorrowed" class="badge badge-success badge-pill ml-2"
+        >Dostępna</span
+      >
+    </div>
+    <h6 class="card-subtitle text-muted mb-4">{{ book.author }}</h6>
+    <h6 class="card-subtitle font-weight-bold">Wydawnictwo</h6>
+    <p class="card-text">{{ book.publisher }}</p>
+    <h6 class="card-subtitle font-weight-bold">Rok wydania</h6>
+    <p class="card-text">{{ book.publishYear }}</p>
+    <h6 class="card-subtitle font-weight-bold">Liczba stron</h6>
+    <p class="card-text">{{ book.pagesCount }}</p>
+
+    <a *ngIf="!book.isBorrowed" routerLink="/books/{{ book.id }}" class="btn btn-info card-link" (click)="borrowBook(book.id)">Wypożycz</a>
+    <a *ngIf="book.isBorrowed" routerLink="/books/{{ book.id }}" class="btn btn-info card-link" (click)="returnBook(book.id)">Zwróć</a>
+    <a routerLink="/books/" class="btn btn-outline-info card-link">Powrót</a>
   </div>
+</div>

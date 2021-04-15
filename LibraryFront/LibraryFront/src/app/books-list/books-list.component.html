@@ -1,10 +1,38 @@
-<div class="list-group">
-  <a
-    *ngFor="let book of books"
-    routerLink="/books/{{ book.id }}"
-    class="d-flex justify-content-between list-group-item list-group-item-action list-group-item-info m-1 border-info border rounded"
-    >{{ book.title }}
-    <span *ngIf="book.isBorrowed" class="badge badge-danger badge-pill">Wypożyczona</span>
-    <span *ngIf="!book.isBorrowed" class="badge badge-success badge-pill">Dostępna</span>
-  </a>
+<div class="container">
+  <div class="list-group">
+    <div *ngFor="let book of books" class="container-fluid d-flex">
+      <div
+        routerLink="/books/{{ book.id }}"
+        class="row list-group-item list-group-item-action list-group-item-info my-1 mr-2 border-info border rounded align-content-center"
+      >
+        {{ book.title }}
+        <span
+          *ngIf="book.isBorrowed"
+          class="badge badge-danger badge-pill p-2 ml-2"
+          >Wypożyczona</span
+        >
+        <span
+          *ngIf="!book.isBorrowed"
+          class="badge badge-success badge-pill p-2 ml-2"
+          >Dostępna</span
+        >
+      </div>
+      <button
+        routerLink="/books/edit/{{ book.id }}"
+        class="btn btn-warning ml-2 align-self-center"
+      >
+        Edytuj
+      </button>
+      <button
+        (click)="this.deleteBook(book.id)"
+        class="btn btn-danger ml-2 align-self-center"
+      >
+        Usuń
+      </button>
+    </div>
+  </div>
+  <div>
+    <button routerLink="/books/add" class="btn btn-primary my-2">Dodaj książkę</button>
+  </div>
 </div>
+

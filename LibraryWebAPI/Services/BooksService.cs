@@ -57,7 +57,7 @@ namespace LibraryWebAPI.Services
             using (var context = _dbContextFactoryMethod())
             {
                 context.Books.Update(book);
-
+                context.SaveChanges();
                 return id;
             }
         }

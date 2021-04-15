@@ -1,6 +1,5 @@
 ﻿using LibraryWebAPI.Models;
 using LibraryWebAPI.Services;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 

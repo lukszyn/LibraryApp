@@ -23,4 +23,15 @@ export class BookDetailsComponent implements OnInit {
       .subscribe(data => { this.book = data; console.log(data) }, error => { console.log(error) });
   }
 
+  borrowBook(id: any) {
+    this.book.isBorrowed = true;
+    this.booksService.update(id, this.book)
+      .subscribe(data => { this.book = data; this.retrieveBook(id) }, error => { console.log(error) });
+  }
+
+  returnBook(id: any) {
+    this.book.isBorrowed = false;
+    this.booksService.update(id, this.book)
+      .subscribe(data => { this.book = data; this.retrieveBook(id) }, error => { console.log(error) });
+  }
 }
