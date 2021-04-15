@@ -1,30 +1,51 @@
 <div *ngIf="book" class="mb-2">
   <div class="form-group">
     <label for="title">Tytuł</label>
-    <input type="text" class="form-control" id="title" [(ngModel)]="book.title">
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      [(ngModel)]="book.title"
+    />
   </div>
   <div class="form-group">
     <label for="author">Autor</label>
-    <input type="text" class="form-control" id="author" [(ngModel)]="book.author">
+    <input
+      type="text"
+      class="form-control"
+      id="author"
+      [(ngModel)]="book.author"
+    />
   </div>
   <div class="form-group">
     <label for="publisher">Wydawnictwo</label>
-    <input type="text" class="form-control" id="publisher" [(ngModel)]="book.publisher">
+    <input
+      type="text"
+      class="form-control"
+      id="publisher"
+      [(ngModel)]="book.publisher"
+    />
   </div>
   <div class="form-group">
     <label for="publishYear">Rok wydania</label>
-    <input type="number" class="form-control" id="publishYear" [(ngModel)]="book.publishYear">
+    <input
+      type="number"
+      class="form-control"
+      id="publishYear"
+      [(ngModel)]="book.publishYear"
+    />
   </div>
   <div class="form-group">
     <label for="pagesCount">Liczba stron</label>
-    <input type="number" class="form-control" id="pagesCount" [(ngModel)]="book.pagesCount">
+    <input
+      type="number"
+      class="form-control"
+      id="pagesCount"
+      [(ngModel)]="book.pagesCount"
+    />
   </div>
   <button (click)="editBook(book.id)" class="btn btn-info">Edytuj</button>
-  <button routerLink="/books/" class="btn btn-outline-info ml-2">Powrót</button>
+  <button routerLink="/books/{{ book.id }}" class="btn btn-outline-info ml-2">
+    Powrót
+  </button>
 </div>
-
-
-
-
-
-

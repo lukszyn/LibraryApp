@@ -18,12 +18,6 @@
         >
       </div>
       <button
-        routerLink="/books/edit/{{ book.id }}"
-        class="btn btn-warning ml-2 align-self-center"
-      >
-        Edytuj
-      </button>
-      <button
         (click)="this.deleteBook(book.id)"
         class="btn btn-danger ml-2 align-self-center"
       >
