@@ -18,7 +18,7 @@ namespace LibraryWebAPI.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=TestDatabase.db", options =>
+            optionsBuilder.UseSqlite("Filename=LibraryDatabase.db", options =>
             {
                 options.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
             });
